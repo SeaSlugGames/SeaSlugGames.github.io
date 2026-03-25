@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SeaSlugGames</title>
   <meta name="description" content="SeaSlugGames - Chibi Colosseum official links" />
+  <link rel="icon" href="logo.png" />
   <style>
     :root {
       --bg: #0b1020;
@@ -12,23 +13,23 @@
       --card: rgba(18, 25, 51, 0.82);
       --text: #eef2ff;
       --muted: #b8c1e0;
-      --accent: #7c9cff;
-      --accent2: #8ef0c9;
+      --accent: #b999ff;
+      --accent2: #efe8ff;
       --border: rgba(255,255,255,0.12);
       --shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
     @media (prefers-color-scheme: light) {
       :root {
-        --bg: #f4f7ff;
-        --bg2: #eaf0ff;
+        --bg: #f7f5ff;
+        --bg2: #eef1ff;
         --card: rgba(255,255,255,0.88);
-        --text: #17203a;
-        --muted: #566684;
-        --accent: #4263eb;
-        --accent2: #0ca678;
-        --border: rgba(23,32,58,0.10);
-        --shadow: 0 18px 40px rgba(34,56,112,0.12);
+        --text: #1c1930;
+        --muted: #625f7c;
+        --accent: #8f6bff;
+        --accent2: #d8c9ff;
+        --border: rgba(28,25,48,0.10);
+        --shadow: 0 18px 40px rgba(80,60,140,0.12);
       }
     }
 
@@ -41,8 +42,8 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 15%, rgba(124,156,255,0.22), transparent 28%),
-        radial-gradient(circle at 85% 12%, rgba(142,240,201,0.16), transparent 24%),
+        radial-gradient(circle at 12% 12%, rgba(185,153,255,0.22), transparent 28%),
+        radial-gradient(circle at 88% 10%, rgba(239,232,255,0.20), transparent 24%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x: hidden;
     }
@@ -94,8 +95,26 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      align-items: center;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      padding: 4px;
+      box-shadow:
+        0 0 0 rgba(185,153,255,0.0),
+        0 0 28px rgba(185,153,255,0.14);
+      animation: logoFloat 4.2s ease-in-out infinite, logoGlow 3.6s ease-in-out infinite;
     }
 
     .brand-title {
@@ -129,7 +148,7 @@
 
     .pill-links a:hover {
       transform: translateY(-1px);
-      border-color: rgba(124,156,255,0.45);
+      border-color: rgba(185,153,255,0.45);
     }
 
     .hero {
@@ -142,6 +161,11 @@
     @media (max-width: 860px) {
       .hero {
         grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
 
@@ -163,10 +187,10 @@
       content: "";
       position: absolute;
       inset: auto -50px -60px auto;
-      width: 220px;
-      height: 220px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,156,255,0.20), transparent 65%);
+      background: radial-gradient(circle, rgba(185,153,255,0.20), transparent 65%);
       pointer-events: none;
     }
 
@@ -175,11 +199,44 @@
       margin-bottom: 14px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(124,156,255,0.14);
-      border: 1px solid rgba(124,156,255,0.26);
+      background: rgba(185,153,255,0.14);
+      border: 1px solid rgba(185,153,255,0.26);
       color: var(--accent);
       font-size: 0.9rem;
       font-weight: 700;
+    }
+
+    .hero-logo {
+      width: 220px;
+      max-width: 65%;
+      margin-bottom: 18px;
+      display: block;
+      filter: drop-shadow(0 0 18px rgba(185,153,255,0.18));
+      animation: logoFloat 5s ease-in-out infinite, heroGlow 4.2s ease-in-out infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes logoGlow {
+      0%, 100% {
+        box-shadow:
+          0 0 0 rgba(185,153,255,0.0),
+          0 0 28px rgba(185,153,255,0.14);
+      }
+      50% {
+        box-shadow:
+          0 0 0 rgba(185,153,255,0.0),
+          0 0 36px rgba(185,153,255,0.24);
+      }
+    }
+
+    @keyframes heroGlow {
+      0%, 100% { filter: drop-shadow(0 0 16px rgba(185,153,255,0.16)); }
+      50% { filter: drop-shadow(0 0 28px rgba(185,153,255,0.28)); }
     }
 
     h1 {
@@ -217,9 +274,9 @@
     .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #5d7fff);
+      background: linear-gradient(135deg, #9c7bff, #b999ff);
       color: white;
-      box-shadow: 0 12px 26px rgba(66,99,235,0.28);
+      box-shadow: 0 12px 26px rgba(156,123,255,0.28);
     }
 
     .btn-secondary {
@@ -299,7 +356,7 @@
 
     .legal-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(124,156,255,0.35);
+      border-color: rgba(185,153,255,0.35);
     }
 
     .legal-card h3 {
@@ -311,11 +368,6 @@
     .legal-card p {
       color: var(--muted);
       margin: 0 0 18px;
-    }
-
-    .mini {
-      color: var(--muted);
-      font-size: 0.94rem;
     }
 
     footer {
@@ -333,8 +385,13 @@
   <main class="wrap">
     <div class="topbar">
       <div class="brand">
-        <div class="brand-title">SeaSlugGames</div>
-        <div class="brand-sub">Official game and legal pages</div>
+        <div class="logo-row">
+          <img src="logo.png" alt="SeaSlugGames Logo" class="logo-img" />
+          <div>
+            <div class="brand-title">SeaSlugGames</div>
+            <div class="brand-sub">Official game and legal pages</div>
+          </div>
+        </div>
       </div>
 
       <nav class="pill-links" aria-label="Site links">
@@ -346,6 +403,7 @@
     <section class="hero">
       <div class="panel hero-main">
         <div class="badge">Chibi Colosseum</div>
+        <img src="logo.png" alt="SeaSlugGames Logo" class="hero-logo" />
         <h1>Small heroes.<br />Big battles.</h1>
         <p class="lead">
           Welcome to SeaSlugGames. This page hosts the official legal documents for
